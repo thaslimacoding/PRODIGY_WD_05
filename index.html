@@ -1,0 +1,70 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Roboto:ital,wght@0,100;0,300;0,400;0,500;0,700;0,900;1,100;1,300;1,400;1,500;1,700;1,900&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="style.css">
+    <title>Weather Predictor</title>
+    <link rel="icon" href="icon">
+</head>
+<body>
+
+    <div class="home">
+        <ul>
+            <li><a class="active" href="#">Home</a></li>
+            <li><a href="#">About</a></li>
+            <li><a href="#">Contact</a></li>
+            <li><a href="#">Sign-in</a></li>
+        </ul>
+    </div>
+<img src="thunderstorm-sun.png" alt="Open in">
+
+    <h1>Climate is what we expect, <br> <span>weather is what we get.</span> </h1>
+    <div>
+        <input type="text" id="city" placeholder="Enter city">
+        <button onclick="getWeather()">Get Weather</button>
+    </div>
+    <div class="left">
+        <img src="left2.png" height="300px" alt="open in chrome">
+    </div>
+    <div class="right">
+        <img src="right2.png" height="300px" alt="open in chrome">
+    </div>
+    <div id="info"></div>
+    <script>
+        const apikey = "55df4d9142cdcba72d4847282843241f";
+
+        async function getWeather() {
+            const city = document.getElementById('city').value;
+            const url = `https://api.openweathermap.org/data/2.5/weather?q=${city}&appid=${apikey}&units=metric`;
+
+            try {
+                const response = await fetch(url);
+if (!response.ok) {
+                    throw new Error("City not found");
+                }
+
+                const weatherData = await response.json();
+                displayWeather(weatherData);
+            } catch (error) {
+                document.getElementById('info').innerText = `Error: ${error.message}`;
+            }
+        }
+
+        function displayWeather(data) {
+            const weatherInfo = `
+            <h2>${data.name}</h2>
+            <p>Temperature: ${data.main.temp}°C</p>
+            <p>Weather: ${data.weather[0].description}</p>
+            <p>Humidity: ${data.main.humidity}%</p>
+            <p>Wind Speed: ${data.wind.speed} m/s</p>
+            `;
+
+            document.getElementById('info').innerHTML = weatherInfo;
+        }
+    </script>
+</body>
+</html>
