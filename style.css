@@ -1,0 +1,86 @@
+weather.css
+body {
+    font-family: "Roboto", sans-serif;
+}
+
+
+.home ul {
+    display: flex;
+    float: right;
+    list-style: none;
+    margin-top: 20px;
+}
+
+.home ul li a {
+    text-decoration: none;
+    padding: 0 40px;
+    border-left: solid 1px rgb(51, 51, 51);
+    color: rgb(117, 117, 117);
+}
+
+.home ul li .active {
+    color: black;
+}
+
+.home ul li a:hover {
+    color: black;
+}
+
+img {
+    margin-left: 10px;
+}
+
+h1 {
+    margin-top: 100px;
+    margin-left: 480px;
+    color: #f1c133;
+    text-shadow: 2px 2px 4px rgb(0, 0, 0);
+}
+
+h1 span {
+    margin-left: 25px;
+}
+
+input {
+    margin-left: 540px;
+    color: rgb(0, 0, 0);
+    margin-top: 40px;
+    background: transparent;
+    border-radius:  10px 0 0 10px;
+    padding: 5px;
+}
+
+button {
+    
+    border: 2px solid rgb(90, 85, 85);
+    border-radius: 0 10px 10px 0;
+    color: rgb(0, 0, 0);
+    padding: 5px;
+    cursor: pointer;
+}
+
+button:hover {
+    background: blueviolet;
+    color: white;
+    border: 2px solid blueviolet;
+}
+
+#info {
+    margin-left: 540px;
+    margin-top: -70px;
+
+}
+
+.left{
+    margin-left: 50px;
+    margin-top: -200px;
+}
+
+.right {
+    margin-left: 970px;
+    margin-top: -330px;
+}
+
+
+
+
